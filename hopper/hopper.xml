@@ -1,0 +1,84 @@
+<!-- ======================================================
+	Model 		:: Hopper
+ 
+	Mujoco		:: Advanced physics simulation engine
+		Source		: www.roboti.us
+		Version		: 1.50
+		Released 	: 17Jan'17
+		
+	Author		:: Vikash Kumar
+		Contacts 	: vikashplus@gmail.com
+		Last edits 	: 24Oct'18
+
+	Copyright 	:: Vikash Kumar
+		Licensed under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+====================================================== -->
+<mujoco model='hopper-v1.5'>
+	<compiler angle="degree" inertiafromgeom='true'/>
+	<default>
+		<joint limited='true' damping='.1' armature='0' />
+		<geom rgba='0.8 0.6 .4 1' material="geom"/>
+		<motor ctrlrange='-1 1'  ctrllimited='true'/>
+	</default>
+
+	<option timestep='0.01'/>
+
+	<visual>
+        <map fogstart="3" fogend="5" force="0.1" znear="0.1"/>
+        <quality shadowsize="2048" offsamples="8"/>
+        <global offwidth="800" offheight="800"/>
+    </visual>
+
+    <asset>
+        <texture name="skybox" type="skybox" builtin="gradient" rgb1=".08 .09 .10" rgb2="0 0 0"
+               width="800" height="800" mark="random" markrgb=".8 .8 .8"/>
+        <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="127" height="1278"
+            rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" markrgb="1 1 1" random="0.01"/>
+        <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2"
+            width="512" height="512"/>
+
+        <material name='MatPlane' reflectance='0.3' texture="texplane" texrepeat="1 1" texuniform="true"/>
+        <material name='geom' texture="texgeom" texuniform="true"/>
+    </asset>
+
+    <worldbody>
+        <geom name='floor' pos='0 0 0' size='40 1 .125' type='plane' material="MatPlane" condim='3'/>
+        <light mode='targetbodycom' target='torso' directional='false' diffuse='.8 .8 .8' specular='0.3 0.3 0.3' pos='-1 -1 4.0' dir='1 1 -4'/>
+        <camera name='targeting' pos='1 1 2' mode='targetbodycom' target='torso'/> 
+
+		<body name='torso' pos='0 0 1.25'>
+			<joint name='slideX' type='slide' pos='0 0 0' axis='1 0 0' limited='false'  armature='0' damping='0' stiffness='0'/>
+			<joint name='slideZ' type='slide' pos='0 0 0' axis='0 0 1' limited='false'  armature='0' damping='0' stiffness='0' />
+			<joint name='hingeY' type='hinge' pos='0 0 0' axis='0 1 0' range='-120 120' armature='0' damping='0' stiffness='0' />
+			<geom type='cylinder' size='.11 .2' pos='0 0 0' euler='0 25 0'/>
+			<geom type='sphere' size='.14' pos='-.085 0 -.181' euler='0 0 0' material=''/>
+
+			<body name='thigh' pos='-.085 0 -.181' euler='0 -45 0'>
+				<joint name='thigh' type='hinge' axis='0 1 0' range='-75 75'/>
+				<geom type='capsule' size='.09 .2' pos='0 0 -.2' euler='0 -.707 0'/>
+
+				<body name='shin' pos='0 0 -.4' euler='0 90 0'>
+					<joint name='shin' type='hinge' axis='0 1 0' range='-75 75'/>
+					<geom type='capsule' size='.07 .2' pos='0 0 -.2' euler='0 .707 0'/>
+
+					<body name='foot' pos='0 0 -.4' euler='0 -90	 0'>
+						<joint name='foot' type='hinge' axis='0 1 0' range='-50 75'/>
+						<geom type='capsule' size='.04 .1' pos='0 0 -.1'/>
+						<geom type='capsule' size='.04 .13' pos='-.04 0 -.08' euler='0 -15 0'/>
+					</body>
+
+				</body>
+
+			</body>
+
+		</body>
+
+	</worldbody>
+
+    <actuator>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="300.0" joint="thigh"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="250.0" joint="shin"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="200.0" joint="foot"/>
+    </actuator>
+
+</mujoco>

@@ -1,0 +1,96 @@
+<!-- ======================================================
+	Model 		:: Tricycle
+ 
+	Mujoco		:: Advanced physics simulation engine
+		Source		: www.roboti.us
+		Version		: 1.50
+		Released 	: 17Jan'17
+		
+	Author		:: Vikash Kumar
+		Contacts 	: vikashplus@gmail.com
+		Last edits 	: 24Oct'18
+
+	Copyright 	:: Vikash Kumar
+		Licensed under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+====================================================== -->
+
+<mujoco model='tricycle-v1.5'>
+
+	<compiler inertiafromgeom='true' angle='radian' coordinate='local'/>
+	<default>
+		<joint limited='true' damping='.1' armature='0' />
+		<geom contype='1' density="1000" condim='1' conaffinity='1' friction='.7 .01 .002' rgba='0.8 0.6 .4 1' margin='0.02' material="geom"/>
+		<motor ctrlrange='-1 1'  ctrllimited='true'/>
+	</default>
+
+	<option timestep='0.002'/>
+
+	<visual>
+        <map fogstart="3" fogend="5" force="0.1" znear="0.2"/>
+        <quality shadowsize="2048" offsamples="8"/>
+        <global offwidth="800" offheight="800"/>
+    </visual>
+
+    <asset>
+        <texture name="skybox" type="skybox" builtin="gradient" rgb1=".08 .09 .10" rgb2="0 0 0"
+               width="800" height="800" mark="random" markrgb=".8 .8 .8"/>
+        <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="127" height="1278" 
+            rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" markrgb="1 1 1" random="0.01"/>  
+        <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" 
+            width="512" height="512"/>  
+
+        <material name='MatPlane' reflectance='0.3' texture="texplane" texrepeat="1 1" texuniform="true"/>
+        <material name='geom' texture="texgeom" texuniform="true"/>
+    </asset>
+
+    <worldbody>
+        <geom name='floor' pos='0 0 0' size='15 15 .125' type='plane' material="MatPlane" condim='3'/>
+        <light mode='targetbodycom' target='torso' directional='false' diffuse='.8 .8 .8' specular='0.3 0.3 0.3' pos='0 0 4.0' dir='0 0 -1'/>
+        <site name='target' pos='0 0 0' size='.9 .001' type='cylinder' rgba='0.2 0.8 0.2 .3' />
+
+		<body name='torso' pos='0 0 .25'>
+			<joint name='root' type='free' pos='0 0 0' limited='false' damping='0' armature='0'/>
+			<geom type='box' size='.30 .25 .02' pos='0 0 0' mass='10'/>
+			<site name="root" type='sphere' size=".05" pos="0 0 0"/>
+			<body pos='-.3 -.3 0' name='l_wheel'>
+				<joint name='l_wheel' type='hinge' pos='0 0 0' axis='0 1 0' limited='false' stiffness='0' armature='0' damping='0.1'/>
+				<geom name='l_wheel' type='cylinder' fromto='0 -.01 0    0 0.01 0'  size='0.20' condim='6'/>
+				<geom name='l_wheel0' type='cylinder' fromto='0 -.011 0    0 0.011 0'  size='0.15' rgba='0 0 0 1' contype='0' conaffinity='0' density='0'/>
+				<geom name='l_decoration1' type='box'   size='0.15 0.012 0.02' contype='0' conaffinity='0' density='0'/>
+				<geom name='l_decoration2' type='box'   size='0.02 0.012 0.15' contype='0' conaffinity='0' density='0'/>
+			</body>
+			<body pos='-.3 .3 0' name='r_wheel'>
+				<joint name='r_wheel' type='hinge' pos='0 0 0' axis='0 1 0' limited='false' stiffness='0' armature='0' damping='0.1'/>
+				<geom name='r_wheel' type='cylinder' fromto='0 -.01 0    0 0.01 0'  size='0.20' condim='6'/>
+				<geom name='r_wheel0' type='cylinder' fromto='0 -.011 0    0 0.011 0'  size='0.15' rgba='0 0 0 1' contype='0' conaffinity='0' density='0'/>
+				<geom name='r_decoration1' type='box'   size='0.15 0.012 0.02' contype='0' conaffinity='0' density='0'/>
+				<geom name='r_decoration2' type='box'   size='0.02 0.012 0.15' contype='0' conaffinity='0' density='0'/>
+			</body>
+
+			<body pos='.55 0 0' name='handle'>
+				<light name='headlight' directional='false' diffuse='20 20 20' pos='0 0 .2' dir='2 0 -1' cutoff='60'/>
+
+				<joint name='handle' type='hinge' pos='0 0 0' axis='0 0 1' limited='true' range='-.5 .5' stiffness='0' armature='0' damping='0.1'/>
+				<geom type='cylinder' size='.04 .2' pos='0 0 0.2'/>
+				<geom type='capsule' size='.04 .2' pos='0 0 0.4' euler='1.57 0 0'/>
+
+				<body pos='0 0 0' name='f_wheel'>
+					<joint name='f_wheel' type='hinge' pos='0 0 0' axis='0 1 0' limited='false' stiffness='0' armature='0' damping='0.1'/>
+					<geom name='f_wheel' type='cylinder' fromto='0 -.01 0    0 0.01 0'  size='0.20' condim='6'/>
+					<geom name='f_wheel0' type='cylinder' fromto='0 -.011 0    0 0.011 0'  size='0.15' rgba='0 0 0 1' contype='0' conaffinity='0' density='0'/>
+					<geom name='f_decoration1' type='box'   size='0.15 0.012 0.02' contype='0' conaffinity='0' density='0'/>
+					<geom name='f_decoration2' type='box'   size='0.02 0.012 0.15' contype='0' conaffinity='0' density='0'/>
+				</body>
+
+			</body>
+
+		</body>
+
+	</worldbody>
+
+	<actuator>
+        <motor name="f_wheel" joint="f_wheel" gear="2.5" />
+        <motor name="handle" joint="handle" gear="10" />
+	</actuator>
+
+</mujoco>
