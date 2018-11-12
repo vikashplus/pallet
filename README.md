@@ -8,3 +8,15 @@ tricycle.xml           |  bicycle.xml       |unicycle.xml             | hopper.x
 pusher.xml           |  slider.xml       |tosser.xml             | juggler.xml          
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![Alt text](pusher/pusher.JPG?raw=false "Push a block") |  ![Alt text](slider/slider.JPG?raw=false "Slide on a rail") | ![Alt text](tosser/tosser.JPG?raw=false "Toss to a bin") | ![Alt text](juggler/juggler.JPG?raw=false "Juggle to a bin")
+
+
+## Citation 
+``` 
+@phdthesis{Kumar2016thesis,
+    title    = {Manipulators and Manipulation in high dimensional spaces},
+    school   = {University of Washington, Seattle},
+    author   = {Kumar, Vikash},
+    year     = {2016},
+    url      = {https://digital.lib.washington.edu/researchworks/handle/1773/38104}
+}
+```
