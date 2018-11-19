@@ -1,0 +1,13 @@
+<mujocoinclude>
+    <asset>
+        <texture name="skybox" type="skybox" builtin="gradient" rgb1=".08 .09 .10" rgb2="0 0 0"
+               width="800" height="800" mark="random" markrgb=".8 .8 .8"/>
+        <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" width="512" height="512" markrgb='.1 .1 .1' mark='random' random='.05'/>
+        <material name='MatPlane' reflectance='0.05' texture="texplane" texrepeat="1 1" texuniform="true"/>
+    </asset>
+
+    <worldbody>
+        <light directional='true' diffuse='.8 .8 .8' specular='0.3 0.3 0.3' pos='-1 -1 1' dir='1 1 -1'/>
+		<geom name='floor' pos='0 0 0' size='2 2 .1' conaffinity='1' contype='1' type='plane' material="MatPlane" condim='3'/>
+    </worldbody>
+</mujocoinclude>
