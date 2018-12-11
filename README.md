@@ -9,9 +9,9 @@ pusher.xml           |  slider.xml       |tosser.xml             | juggler.xml
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![Alt text](pusher/pusher.JPG?raw=false "Push a block") |  ![Alt text](slider/slider.JPG?raw=false "Slide on a rail") | ![Alt text](tosser/tosser.JPG?raw=false "Toss to a bin") | ![Alt text](juggler/juggler.JPG?raw=false "Juggle to a bin")
 
-tetris.xml           | comming soon 1        | comming soon 2          | comming soon 3 
+tetris.xml           | dice.xml        | comming soon 2          | comming soon 3 
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![Alt text](tetris/tetris.png?raw=false "play the game of tetris") |  ![Alt text](tetris/tetris.png?raw=false "play the game of tetris") | ![Alt text](tetris/tetris.png?raw=false "play the game of tetris") | ![Alt text](tetris/tetris.png?raw=false "play the game of tetris")
+![Alt text](tetris/tetris.png?raw=false "play the game of tetris") |  ![Alt text](dice/dice_and_target.png?raw=false "Roll the dice") | ![Alt text](tetris/tetris.png?raw=false "play the game of tetris") | ![Alt text](tetris/tetris.png?raw=false "play the game of tetris")
 
 
 
