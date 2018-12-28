@@ -1,0 +1,63 @@
+<!-- ===========Copyright | Vikash Kumar | vikashplus@gmail.com ==============
+    Model       :: house hold objects
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 2.00
+        Released    : 1Oct"18
+    Author      :: Vikash Kumar
+        Contacts    : vikashplus@gmail.com
+        Last edits  : 27Dec"18
+
+    Copyright 2018 Vikash Kumar
+        Licensed under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+================================================================================= -->
+
+<mujoco model="house hold objects">
+
+	<include file='../utils/basic_scene.xml'/>
+	<compiler angle='radian'/>
+	
+    <worldbody>
+		<body name="bottle" pos="-.2 0 0" >
+			<include file='include_bottle.xml'/>
+			<freejoint name="Jbottle"/>
+		</body>	
+		
+		<body name="glass" pos="-.1 0 0">
+			<include file='include_glass.xml'/>
+			<freejoint name="Jglass"/>
+		</body>
+		
+		<body name='hammer' pos='0 -.1 0.05'>
+			<include file='include_hammer.xml'/>
+			<freejoint name='Jhammer'/>
+        </body>
+		
+		<body name="pen" pos="0 0 0">
+			<include file='include_pen.xml'/>		
+			<freejoint name='Jpen'/>
+        </body>
+		
+		<body name="spatula" pos=".5 -.2 .05">
+			<include file='include_spatula.xml'/>		
+			<freejoint name='Jspatula'/>
+        </body>
+		
+		<body name="container" pos="0.1 0 0">
+			<include file='include_container.xml'/>
+			<freejoint name="Jcontainer"/>
+		</body>
+		
+		<body name="book" pos="0.3 0 0.002">
+			<include file='include_book.xml'/>
+			<freejoint name="Jbook"/>
+		</body>
+		
+		<body name="mug" pos="0.5 0 0">
+			<include file='include_mug.xml'/>
+			<freejoint name="Jmug"/>
+		</body>
+		
+	</worldbody>
+</mujoco>
+	
