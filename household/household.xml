@@ -16,48 +16,52 @@
 
 	<include file='../utils/basic_scene.xml'/>
 	<compiler angle='radian'/>
-	
+
     <worldbody>
 		<body name="bottle" pos="-.2 0 0" >
 			<include file='include_bottle.xml'/>
 			<freejoint name="Jbottle"/>
-		</body>	
-		
+		</body>
+
 		<body name="glass" pos="-.1 0 0">
 			<include file='include_glass.xml'/>
 			<freejoint name="Jglass"/>
 		</body>
-		
+
 		<body name='hammer' pos='0 -.1 0.05'>
 			<include file='include_hammer.xml'/>
 			<freejoint name='Jhammer'/>
         </body>
-		
+
 		<body name="pen" pos="0 0 0">
-			<include file='include_pen.xml'/>		
+			<include file='include_pen.xml'/>
 			<freejoint name='Jpen'/>
         </body>
-		
+
+		<body name="pencil" pos=".1 0 0.2">
+			<include file='include_pencil.xml'/>
+			<freejoint name='Jpencil'/>
+        </body>
+
 		<body name="spatula" pos=".5 -.2 .05">
-			<include file='include_spatula.xml'/>		
+			<include file='include_spatula.xml'/>
 			<freejoint name='Jspatula'/>
         </body>
-		
+
 		<body name="container" pos="0.1 0 0">
 			<include file='include_container.xml'/>
 			<freejoint name="Jcontainer"/>
 		</body>
-		
+
 		<body name="book" pos="0.3 0 0.002">
 			<include file='include_book.xml'/>
 			<freejoint name="Jbook"/>
 		</body>
-		
+
 		<body name="mug" pos="0.5 0 0">
 			<include file='include_mug.xml'/>
 			<freejoint name="Jmug"/>
 		</body>
-		
+
 	</worldbody>
 </mujoco>
-	
