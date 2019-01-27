@@ -9,7 +9,7 @@ pusher.xml           |  slider.xml       |tosser.xml             | juggler.xml
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![Alt text](pusher/pusher.png?raw=false "Push a block") |  ![Alt text](slider/slider.png?raw=false "Slide on a rail") | ![Alt text](tosser/tosser.png?raw=false "Toss to a bin") | ![Alt text](juggler/juggler.png?raw=false "Juggle to a bin")
 
-tetris.xml           | dice.xml        | household.xml          | comming soon 3 
+tetris.xml           | dice.xml        | household.xml          | bug.xml 
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![Alt text](tetris/tetris.png?raw=false "play the game of tetris") |  ![Alt text](dice/dice_and_target.png?raw=false "Roll the dice") | ![Alt text](household/household.png?raw=false "Household objects") | ![Alt text](bug/bug.png?raw=false "Bug eating food")
 
