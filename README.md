@@ -3,15 +3,15 @@ A collection of simple worlds
 
 tricycle.xml           |  bicycle.xml       |unicycle.xml             | hopper.xml          
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![Alt text](tricycle/tricycle.JPG?raw=false "tricycle") |  ![Alt text](bicycle/bicycle.JPG?raw=false "Bicycle") | ![Alt text](unicycle/unicycle.JPG?raw=false "humanoid on unicycle") | ![Alt text](hopper/hopper.JPG?raw=false "Hopper")
+![Alt text](tricycle/tricycle.png?raw=false "tricycle") |  ![Alt text](bicycle/bicycle.png?raw=false "Bicycle") | ![Alt text](unicycle/unicycle.png?raw=false "humanoid on unicycle") | ![Alt text](hopper/hopper.png?raw=false "Hopper")
 
 pusher.xml           |  slider.xml       |tosser.xml             | juggler.xml          
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![Alt text](pusher/pusher.JPG?raw=false "Push a block") |  ![Alt text](slider/slider.JPG?raw=false "Slide on a rail") | ![Alt text](tosser/tosser.JPG?raw=false "Toss to a bin") | ![Alt text](juggler/juggler.JPG?raw=false "Juggle to a bin")
+![Alt text](pusher/pusher.png?raw=false "Push a block") |  ![Alt text](slider/slider.png?raw=false "Slide on a rail") | ![Alt text](tosser/tosser.png?raw=false "Toss to a bin") | ![Alt text](juggler/juggler.png?raw=false "Juggle to a bin")
 
 tetris.xml           | dice.xml        | household.xml          | comming soon 3 
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![Alt text](tetris/tetris.png?raw=false "play the game of tetris") |  ![Alt text](dice/dice_and_target.png?raw=false "Roll the dice") | ![Alt text](household/household.jpg?raw=false "Household objects") | ![Alt text](bug/bug.png?raw=false "Bug eating food")
+![Alt text](tetris/tetris.png?raw=false "play the game of tetris") |  ![Alt text](dice/dice_and_target.png?raw=false "Roll the dice") | ![Alt text](household/household.png?raw=false "Household objects") | ![Alt text](bug/bug.png?raw=false "Bug eating food")
 
 
 
