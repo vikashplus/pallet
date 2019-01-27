@@ -1,0 +1,190 @@
+<!-- ===========Copyright | Vikash Kumar | vikashplus@gmail.com ==============
+    Model       :: house hold objects
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 2.00
+        Released    : 1Oct"18
+    Author      :: Vikash Kumar
+        Contacts    : vikashplus@gmail.com
+        created  	: 3rdNov"17
+        Last edits  : 26Jan"19
+
+    Copyright 2018 Vikash Kumar
+        Licensed under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+================================================================================= -->
+
+<mujoco model="bug-v200">
+  <include file='../utils/basic_scene.xml'/>
+  <compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
+  <option integrator="RK4" timestep="0.01"/>
+
+  <custom>
+    <numeric data="0.0 0.0 0.55 1.0 0.0 0.0 0.0 0.0 1.0 0.0 -1.0 0.0 -1.0 0.0 1.0" name="init_qpos"/>
+  </custom>
+
+  <default>
+    <joint armature="1" damping="1" limited="true"/>
+    <geom conaffinity="0" condim="3" friction="1 0.05 0.005" margin="0.01" rgba="0.8 0.6 0.4 1"/>
+  </default>
+
+  <asset>
+	<texture name="TexGrass" type="2d" builtin="gradient" random=".15" rgb1="0.25 0.95 0.35" rgb2="0.25 0.7 0.3" width="200" height="200" mark="random" markrgb=".2 .4 .0"/>
+	<material name="MatGrass" texture="TexGrass" texrepeat="1 1" specular="1" shininess="1" reflectance="0.1"/>
+
+    <texture builtin="flat" height="1278" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>
+    <material name="geom" texture="texgeom" texuniform="true"/>
+  </asset>
+
+
+  <worldbody>
+
+    <geom conaffinity="0" contype="0" material="MatGrass" name="grass" pos="0 0 0.001" size="16 .02" type="cylinder"/>
+
+    <site name="target" pos="0 5 0" size="0.3" rgba="0 1 0 0.52" />
+
+	<body name="torso0" pos="0 0 0.75">
+		<geom pos="0 0 0" size="0.3" type="sphere" rgba="0.95 0.5 0.4 1"/>
+		<geom pos="0.1 0.28 .1" size="0.04" type="sphere" rgba=".05 0 0 1"/>
+		<geom pos="-.1 0.28 .1" size="0.04" type="sphere" rgba="0.05 0 0 1"/>
+		<!-- <joint armature="0" damping="0" limited="false" margin="0.01" name="root" pos="0 0 0" type="free"/> -->
+		<joint name="Tx" pos="0 0 0" axis="1 0 0" type="slide" range="-10 10" />
+        <joint name="Ty" pos="0 0 0" axis="0 1 0" type="slide" range="-10 10" />
+        <joint name="Tz" pos="0 0 0" axis="0 0 1" type="slide" range="-1 1" />
+        <joint name="Rx" pos="0 0 0" axis="1 0 0" range="-90 90" />
+        <joint name="Ry" pos="0 0 0" axis="0 1 0" range="-90 90" />
+        <joint name="Rz" pos="0 0 0" axis="0 0 1" range="-1800 1800" />
+		<body pos="0.25 0 0">
+			<joint axis="0 0 1" name="hipL0" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+			<geom fromto="0.0 0.0 0.0 0.2 0.0 0.0" size="0.08" type="capsule"/>
+			<body pos="0.2 0.0 0">
+				<joint axis="-1 1 0" name="ankleL0" pos="0.0 0.0 0.0" range="30 70" type="hinge"/>
+				<geom fromto="0.0 0.0 0.0 0.4 0.0 0.0" size="0.08" type="capsule"/>
+			</body>
+		</body>
+		<body pos="-0.25 0 0">
+			<joint axis="0 0 1" name="hipR0" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+			<geom fromto="0.0 0.0 0.0 -0.2 0.0 0.0" size="0.08" type="capsule"/>
+			<body pos="-0.2 0.0 0">
+				<joint axis="1 1 0" name="ankleR0" pos="0.0 0.0 0.0" range="-70 -30" type="hinge"/>
+				<geom fromto="0.0 0.0 0.0 -0.4 0.0 0.0" size="0.08" type="capsule"/>
+			</body>
+		</body>
+
+		<body name="torso1" pos="0 -.5 0">
+			<geom pos="0 0 0" size="0.2 0.2" type="capsule" euler="90 0 0"/>
+			<joint axis="0 0 1" name="spine1" pos="0.0 0.3 0.0" range="-30 30" type="hinge"/>
+			<body pos="0.2 0 0">
+				<joint axis="0 0 1" name="hipL1" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+				<geom fromto="0.0 0.0 0.0 0.2 0.0 0.0" size="0.08" type="capsule"/>
+				<body pos="0.2 0.0 0">
+					<joint axis="-1 1 0" name="ankleL1" pos="0.0 0.0 0.0" range="30 70" type="hinge"/>
+					<geom fromto="0.0 0.0 0.0 0.4 0.0 0.0" size="0.08" type="capsule"/>
+				</body>
+			</body>
+			<body pos="-0.2 0 0">
+				<joint axis="0 0 1" name="hipR1" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+				<geom fromto="0.0 0.0 0.0 -0.2 0.0 0.0" size="0.08" type="capsule"/>
+				<body pos="-0.2 0.0 0">
+					<joint axis="1 1 0" name="ankleR1" pos="0.0 0.0 0.0" range="-70 -30" type="hinge"/>
+					<geom fromto="0.0 0.0 0.0 -0.4 0.0 0.0" size="0.08" type="capsule"/>
+				</body>
+			</body>
+
+			<body name="torso2" pos="0 -.5 0">
+				<geom pos="0 0 0" size="0.18 0.2" type="capsule" euler="90 0 0"/>
+				<joint axis="0 0 1" name="spine2" pos="0.0 0.3 0.0" range="-30 30" type="hinge"/>
+				<body pos="0.18 0 0">
+					<joint axis="0 0 1" name="hipL2" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+					<geom fromto="0.0 0.0 0.0 0.2 0.0 0.0" size="0.08" type="capsule"/>
+					<body pos="0.2 0.0 0">
+						<joint axis="-1 1 0" name="ankleL2" pos="0.0 0.0 0.0" range="30 70" type="hinge"/>
+						<geom fromto="0.0 0.0 0.0 0.4 0.0 0.0" size="0.08" type="capsule"/>
+					</body>
+				</body>
+				<body pos="-0.18 0 0">
+					<joint axis="0 0 1" name="hipR2" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+					<geom fromto="0.0 0.0 0.0 -0.2 0.0 0.0" size="0.08" type="capsule"/>
+					<body pos="-0.2 0.0 0">
+						<joint axis="1 1 0" name="ankleR2" pos="0.0 0.0 0.0" range="-70 -30" type="hinge"/>
+						<geom fromto="0.0 0.0 0.0 -0.4 0.0 0.0" size="0.08" type="capsule"/>
+					</body>
+				</body>
+
+				<body name="torso3" pos="0 -.5 0">
+					<geom pos="0 0 0" size="0.16 0.2" type="capsule" euler="90 0 0"/>
+					<joint axis="0 0 1" name="spine3" pos="0.0 0.3 0.0" range="-30 30" type="hinge"/>
+					<body pos="0.16 0 0">
+						<joint axis="0 0 1" name="hipL3" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+						<geom fromto="0.0 0.0 0.0 0.2 0.0 0.0" size="0.08" type="capsule"/>
+						<body pos="0.2 0.0 0">
+							<joint axis="-1 1 0" name="ankleL3" pos="0.0 0.0 0.0" range="30 70" type="hinge"/>
+							<geom fromto="0.0 0.0 0.0 0.4 0.0 0.0" size="0.08" type="capsule"/>
+						</body>
+					</body>
+					<body pos="-0.16 0 0">
+						<joint axis="0 0 1" name="hipR3" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+						<geom fromto="0.0 0.0 0.0 -0.2 0.0 0.0" size="0.08" type="capsule"/>
+						<body pos="-0.2 0.0 0">
+							<joint axis="1 1 0" name="ankleR3" pos="0.0 0.0 0.0" range="-70 -30" type="hinge"/>
+							<geom fromto="0.0 0.0 0.0 -0.4 0.0 0.0" size="0.08" type="capsule"/>
+						</body>
+					</body>
+
+					<body name="torso4" pos="0 -.5 0">
+						<geom pos="0 0 0" size="0.14 0.2" type="capsule" euler="90 0 0"/>
+						<joint axis="0 0 1" name="spine4" pos="0.0 0.3 0.0" range="-30 30" type="hinge"/>
+						<body pos="0.14 0 0">
+							<joint axis="0 0 1" name="hipL4" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+							<geom fromto="0.0 0.0 0.0 0.2 0.0 0.0" size="0.08" type="capsule"/>
+							<body pos="0.2 0.0 0">
+								<joint axis="-1 1 0" name="ankleL4" pos="0.0 0.0 0.0" range="30 70" type="hinge"/>
+								<geom fromto="0.0 0.0 0.0 0.4 0.0 0.0" size="0.08" type="capsule"/>
+							</body>
+						</body>
+						<body pos="-0.14 0 0">
+							<joint axis="0 0 1" name="hipR4" pos="0.0 0.0 0.0" range="-30 30" type="hinge"/>
+							<geom fromto="0.0 0.0 0.0 -0.2 0.0 0.0" size="0.08" type="capsule"/>
+							<body pos="-0.2 0.0 0">
+								<joint axis="1 1 0" name="ankleR4" pos="0.0 0.0 0.0" range="-70 -30" type="hinge"/>
+								<geom fromto="0.0 0.0 0.0 -0.4 0.0 0.0" size="0.08" type="capsule"/>
+							</body>
+						</body>
+
+						<body name="torso5" pos="0 -.5 0">
+							<geom pos="0 0 0" size="0.12 0.25" type="capsule" euler="90 0 0"/>
+							<joint axis="0 0 1" name="spine5" pos="0.0 0.3 0.0" range="-30 30" type="hinge"/>
+						</body>
+					</body>
+				</body>
+			</body>
+		</body>
+    </body>
+
+  </worldbody>
+  <actuator>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipR0" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleR0" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipL0" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleL0" gear="300"/>
+
+	<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipR1" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleR1" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipL1" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleL1" gear="300"/>
+
+	<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipR2" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleR2" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipL2" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleL2" gear="300"/>
+
+	<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipR3" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleR3" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipL3" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleL3" gear="300"/>
+
+	<motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipR4" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleR4" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hipL4" gear="300"/>
+    <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="ankleL4" gear="300"/>
+  </actuator>
+</mujoco>

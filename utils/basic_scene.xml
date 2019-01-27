@@ -1,4 +1,9 @@
 <mujocoinclude>
+
+    <visual>
+        <quality shadowsize="4048"/>
+    </visual>
+
     <asset>
         <texture name="skybox" type="skybox" builtin="gradient" rgb1=".08 .09 .10" rgb2="0 0 0"
                width="800" height="800" mark="random" markrgb=".8 .8 .8"/>
