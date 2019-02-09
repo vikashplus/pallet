@@ -1,0 +1,102 @@
+<!-- =========== Copyright | Vikash Kumar | vikashplus@gmail.com ==============
+    Model       :: turtle toy
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 2.00
+        Released    : 1Oct"18
+    Author      :: Vikash Kumar
+        Contacts    : vikashplus@gmail.com
+        created  	: 8thFeb"18
+        Last edits  : 6Feb"19
+
+    Copyright 2019 Vikash Kumar
+        Licensed under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+================================================================================= -->
+
+<mujoco model='turtletoy-v200'>
+
+	<include file='../utils/basic_scene.xml'/>
+	<compiler angle="radian"/>
+	<size nconmax='200' njmax='600'/>
+
+	<default>
+		<default class="turtleBase">
+			<geom rgba='.8 .6 .6 1' condim='3'/>
+		</default>
+		<default class="donut0">
+			<geom type="capsule" size='.02 .02' rgba='.6 .76 .6 1' condim='3'/>
+		</default>
+		<default class="donut1">
+			<geom type="capsule" size='.02 .02' rgba='.86 .76 .6 1' condim='3'/>
+		</default>
+		<default class="donut2">
+			<geom type="capsule" size='.02 .02' rgba='.46 .76 .86 1' condim='3'/>
+		</default>
+		<default class="donut3">
+			<geom type="capsule" size='.02 .02' rgba='.66 .56 .86 1' condim='3'/>
+		</default>
+	</default>
+
+	<!-- ======= WORLD ======= -->
+    <worldbody>
+
+		<body name='turtle base' childclass="turtleBase" pos='0 0 .025'>
+			<geom type='cylinder' rgba='.8 .6 .6 1' pos='0 0 0' size='.100 .025'/>
+			<geom name='tail' type='box' rgba='.8 .6 .6 1' pos='0 0 0' size='.150 .025 .024'/>
+			<geom type='capsule' rgba='.8 .6 .6 1' size='.0275 .080' pos='0 0 .1'/>
+			<geom name='eyes' type='capsule' rgba='.2 .2 .2 1' size='.015 .03' pos='0.15 0 .05' euler='1.57 0 0'/>
+			<geom type='cylinder' size='.05 0.025' pos='.15 0 .025' euler='1.57 0 0'/>
+			<joint type='free' limited="false"/>
+		</body>
+
+		<body childclass="donut0" name='donut0' pos='0 0 .15' euler='1.57 0 0'>
+			<geom pos='0.05 0 0' 		euler='0 0 0'/>
+			<geom pos='-.035  0 0.035' 	euler='0 0.785 0'/>
+			<geom pos='0 0 0.05' 		euler='0 1.570 0'/>
+			<geom pos='0.035 0 0.035' 	euler='0 2.355 0'/>
+			<geom pos='-0.05 0 0'  		euler='0 3.140 0'/>
+			<geom pos='0.035  0 -.035'  euler='0 0.785 0'/>
+			<geom pos='0 0 -.05'  		euler='0 1.570 0'/>
+			<geom pos='-.035 0 -.035'  	euler='0 2.355 0'/>
+			<joint type='free' limited="false"/>
+		</body>
+
+		<body childclass="donut1" name='donut1' pos='0 0 .2' euler='1.57 0 0'>
+			<geom pos='0.05 0 0' 		euler='0 0 0'/>
+			<geom pos='-.035  0 0.035' 	euler='0 0.785 0'/>
+			<geom pos='0 0 0.05' 		euler='0 1.570 0'/>
+			<geom pos='0.035 0 0.035' 	euler='0 2.355 0'/>
+			<geom pos='-0.05 0 0'  		euler='0 3.140 0'/>
+			<geom pos='0.035  0 -.035'  euler='0 0.785 0'/>
+			<geom pos='0 0 -.05'  		euler='0 1.570 0'/>
+			<geom pos='-.035 0 -.035'  	euler='0 2.355 0'/>
+			<joint type='free' limited="false"/>
+		</body>
+
+		<body childclass="donut2" name='donut2' pos='0 0 .25' euler='1.57 0 0'>
+			<geom pos='0.05 0 0' 		euler='0 0 0'/>
+			<geom pos='-.035  0 0.035' 	euler='0 0.785 0'/>
+			<geom pos='0 0 0.05' 		euler='0 1.570 0'/>
+			<geom pos='0.035 0 0.035' 	euler='0 2.355 0'/>
+			<geom pos='-0.05 0 0'  		euler='0 3.140 0'/>
+			<geom pos='0.035  0 -.035'  euler='0 0.785 0'/>
+			<geom pos='0 0 -.05'  		euler='0 1.570 0'/>
+			<geom pos='-.035 0 -.035'  	euler='0 2.355 0'/>
+			<joint type='free' limited="false"/>
+		</body>
+
+		<body childclass="donut3" name='donut3' pos='0 0 .30' euler='1.57 0 0'>
+			<geom pos='0.05 0 0' 		euler='0 0 0'/>
+			<geom pos='-.035  0 0.035' 	euler='0 0.785 0'/>
+			<geom pos='0 0 0.05' 		euler='0 1.570 0'/>
+			<geom pos='0.035 0 0.035' 	euler='0 2.355 0'/>
+			<geom pos='-0.05 0 0'  		euler='0 3.140 0'/>
+			<geom pos='0.035  0 -.035'  euler='0 0.785 0'/>
+			<geom pos='0 0 -.05'  		euler='0 1.570 0'/>
+			<geom pos='-.035 0 -.035'  	euler='0 2.355 0'/>
+			<joint type='free' limited="false"/>
+		</body>
+
+    </worldbody>
+
+</mujoco>
