@@ -1,0 +1,80 @@
+<!-- =========== Copyright | Vikash Kumar | vikashplus@gmail.com ==============
+    Model       :: numpad
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 2.00
+        Released    : 1Oct"18
+    Author      :: Vikash Kumar
+        Contacts    : vikashplus@gmail.com
+        created     : 25thSept"13
+        Last edits  : 26July"19
+    Copyright 2019 Vikash Kumar
+        Licensed under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+================================================================================= -->
+
+<mujocoinclude>
+    <body name="Keyboard" pos="0 0 0" childclass="numpad">
+
+        <geom name="Keyboard_base" type="box" pos=".05 .04 0" size=".05 .04 .003" rgba=".1 .1 .1 1" contype="1" conaffinity="1" class="viz"/>
+        <body name="Key1" pos="0.02 0.06 .003">
+            <geom name="C_Key1" rgba=".1 .1 .5 1"/>
+            <geom name="V_Key1" mesh="Key1" class="viz"/>
+            <joint name="Key1"/>
+        </body>
+        <body name="Key2" pos="0.02 0.04 .003">
+            <geom name="C_Key2" rgba=".1 .5 .1 1"/>
+            <geom name="V_Key2" mesh="Key2" class="viz"/>
+            <joint name="Key2"/>
+        </body>
+        <body name="Key3" pos="0.02 0.02 .003">
+            <geom name="C_Key3" rgba=".5 .1 .1 1"/>
+            <geom name="V_Key3" mesh="Key3" class="viz"/>
+            <joint name="Key3"/>
+        </body>
+        <body name="Key4" pos="0.04 0.06 .003">
+            <geom name="C_Key4" rgba=".1 .1 .5 1"/>
+            <geom name="V_Key4" mesh="Key4" class="viz"/>
+            <joint name="Key4"/>
+        </body>
+        <body name="Key5" pos="0.04 0.04 .003">
+            <geom name="C_Key5" rgba=".1 .5 .1 1"/>
+            <geom name="V_Key5" mesh="Key5" class="viz"/>
+            <joint name="Key5"/>
+        </body>
+        <body name="Key6" pos="0.04 0.02 .003">
+            <geom name="C_Key6" rgba=".5 .1 .1 1"/>
+            <geom name="V_Key6" mesh="Key6" class="viz"/>
+            <joint name="Key6"/>
+        </body>
+        <body name="Key7" pos="0.06 0.06 .003">
+            <geom name="C_Key7" rgba=".1 .1 .5 1"/>
+            <geom name="V_Key7" mesh="Key7" class="viz"/>
+            <joint name="Key7"/>
+        </body>
+        <body name="Key8" pos="0.06 0.04 .003">
+            <geom name="C_Key8" rgba=".1 .5 .1 1"/>
+            <geom name="V_Key8" mesh="Key8" class="viz"/>
+            <joint name="Key8"/>
+        </body>
+        <body name="Key9" pos="0.06 0.02 .003">
+            <geom name="C_Key9" rgba=".5 .1 .1 1"/>
+            <geom name="V_Key9" mesh="Key9" class="viz"/>
+            <joint name="Key9"/>
+        </body>
+        <body name="Key10" pos="0.08 0.06 .003">
+            <geom name="C_Key10" rgba=".1 .1 .5 1"/>
+            <geom name="V_Key10" mesh="Key0" class="viz"/>
+            <joint name="Key10"/>
+        </body>
+        <body name="Key11" pos="0.08 0.04 .003">
+            <geom name="C_Key11" rgba=".1 .5 .1 1"/>
+            <geom name="V_Key11" mesh="point" class="viz"/>
+            <joint name="Key11" type="slide"/>
+        </body>
+        <body name="Key12" pos="0.08 0.02 .003">
+            <geom name="C_Key12" rgba=".5 .1 .1 1"/>
+            <geom name="V_Key12" mesh="Key" class="viz"/>
+            <joint name="Key12"/>
+        </body>
+    </body>
+</mujocoinclude>

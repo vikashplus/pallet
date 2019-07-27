@@ -1,0 +1,42 @@
+<!-- =========== Copyright | Vikash Kumar | vikashplus@gmail.com ==============
+    Model       :: numpad
+    Mujoco      :: Advanced physics simulation engine
+        Source      : www.roboti.us
+        Version     : 2.00
+        Released    : 1Oct"18
+    Author      :: Vikash Kumar
+        Contacts    : vikashplus@gmail.com
+        created     : 25thSept"13
+        Last edits  : 26July"19
+    Copyright 2019 Vikash Kumar
+        Licensed under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+================================================================================= -->
+
+<mujocoinclude>
+    <compiler meshdir="meshes"/>
+
+    <default>
+        <default class="numpad">
+            <geom rgba=".35 .35 .35 1" type="box"  size=".0085 .0085 .003" contype="1" conaffinity="0" group="0"/>
+            <joint type="slide" axis="0 0 1" limited="true" range="0 0.005" stiffness="1" springref=".1" damping="1"/>
+            <default class="viz">
+                <geom type="mesh" contype="0" conaffinity="0" group="1" pos="0 0 .0002"/>
+            </default>
+        </default>
+    </default>
+
+    <asset>
+        <mesh name="Key"   file="Key.stl" scale=".00101 .00101 .00101"/>
+        <mesh name="Key1"  file="Key1.stl" scale=".001 .001 .001"/>
+        <mesh name="Key2"  file="Key2.stl" scale=".001 .001 .001"/>
+        <mesh name="Key3"  file="Key3.stl" scale=".001 .001 .001"/>
+        <mesh name="Key4"  file="Key4.stl" scale=".001 .001 .001"/>
+        <mesh name="Key5"  file="Key5.stl" scale=".001 .001 .001"/>
+        <mesh name="Key6"  file="Key6.stl" scale=".001 .001 .001"/>
+        <mesh name="Key7"  file="Key7.stl" scale=".001 .001 .001"/>
+        <mesh name="Key8"  file="Key8.stl" scale=".001 .001 .001"/>
+        <mesh name="Key9"  file="Key9.stl" scale=".001 .001 .001"/>
+        <mesh name="Key0"  file="Key0.stl" scale=".001 .001 .001"/>
+        <mesh name="point" file="point.stl" scale=".001 .001 .001"/>
+    </asset>
+</mujocoinclude>
