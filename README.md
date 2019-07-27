@@ -13,9 +13,9 @@ tetris.xml           | dice.xml        | household.xml          | bug.xml
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![Alt text](tetris/tetris.png?raw=false "play the game of tetris") |  ![Alt text](dice/dice_and_target.png?raw=false "Roll the dice") | ![Alt text](household/household.png?raw=false "Household objects") | ![Alt text](bug/bug.png?raw=false "Bug eating food")
 
-turtletoy.xml           | -      | -    |  -
+turtletoy.xml           | numpad.xml      | -    |  -
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-![Alt text](turtletoy/turtletoy.png?raw=false "assemble the turtle") |  ![Alt text](turtletoy/turtletoy.png?raw=false "assemble the turtle") | ![Alt text](turtletoy/turtletoy.png?raw=false "assemble the turtle") | ![Alt text](turtletoy/turtletoy.png?raw=false "assemble the turtle")
+![Alt text](turtletoy/turtletoy.png?raw=false "assemble the turtle") |  ![Alt text](numpad/numpad.png?raw=false "spring loaded numeric pad") | ![Alt text](turtletoy/turtletoy.png?raw=false "assemble the turtle") | ![Alt text](turtletoy/turtletoy.png?raw=false "assemble the turtle")
 
 
 ## Citation 
