@@ -12,8 +12,8 @@
         Licensed under Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 ================================================================================= -->
 <mujocoinclude>
-	<geom name="pages" type="box" rgba='.9 .9 .95 1' size="0.080 0.120 0.025" pos="0 0 0.022"/>
-	<geom name="top_cover" type="box" rgba='.9 .3 .5 1' size="0.081 0.121 0.002" pos="0.003 0 0.052"/>
-	<geom name="bottom_cover" type="box" rgba='.9 .3 .5 1' size="0.081 0.121 0.002" pos="0.002 0 0.002"/>
-	<geom name="size_cover" type="box" rgba='.9 .3 .5 1' size="0.002 0.121 0.027" pos="-.08 0 0.027"/>
+	<geom name="book_pages" type="box" rgba='.9 .9 .95 1' size="0.080 0.120 0.025" pos="0 0 0.022"/>
+	<geom name="book_top_cover" type="box" rgba='.9 .3 .5 1' size="0.081 0.121 0.002" pos="0.003 0 0.052"/>
+	<geom name="book_bottom_cover" type="box" rgba='.9 .3 .5 1' size="0.081 0.121 0.002" pos="0.002 0 0.002"/>
+	<geom name="book_size_cover" type="box" rgba='.9 .3 .5 1' size="0.002 0.121 0.027" pos="-.08 0 0.027"/>
 </mujocoinclude>

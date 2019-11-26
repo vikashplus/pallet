@@ -28,11 +28,6 @@
 			<freejoint name="Jglass"/>
 		</body>
 
-		<body name='hammer' pos='0 -.1 0.05'>
-			<include file='include_hammer.xml'/>
-			<freejoint name='Jhammer'/>
-        </body>
-
 		<body name="pen" pos="0 0 0">
 			<include file='include_pen.xml'/>
 			<freejoint name='Jpen'/>
@@ -41,11 +36,6 @@
 		<body name="pencil" pos=".1 0 0.2">
 			<include file='include_pencil.xml'/>
 			<freejoint name='Jpencil'/>
-        </body>
-
-		<body name="spatula" pos=".5 -.2 .05">
-			<include file='include_spatula.xml'/>
-			<freejoint name='Jspatula'/>
         </body>
 
 		<body name="container" pos="0.1 0 0">
